@@ -71,16 +71,19 @@ body {
 	font-size: 50px;
 }
 
-#settings {
+#settings, #dismiss {
 	font-family: "Font Awesome";
 	font-size: 30px;
 	cursor: pointer;
 	position: absolute;
+}
+
+#settings {
 	bottom: 10px;
 	right: 10px;
 }
 
-#settings:hover {
+#settings:hover, #dismiss:hover {
 	color: #414449;
 }
 
@@ -93,6 +96,7 @@ body {
 }
 
 #settings-panel {
+	position: relative;
 	padding: 20px;
 	width: 400px;
 	height: auto;
@@ -106,8 +110,14 @@ body {
 #settings-panel h1 {
 	text-align: center;
 	margin-top: -10px;
-	height: 70px;
+	margin-bottom: 10px;
+	height: 60px;
 	border-bottom: 2px solid #848991;
+}
+
+#dismiss {
+	top: 10px;
+	right: 10px;
 }
 
 #blackout {
