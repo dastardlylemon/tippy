@@ -15,8 +15,12 @@ $(document).ready(function() {
 
   var items = [];
   var req = $.getJSON('request.php', {url: json}, function(response) {
+    var i = 0;
     $.each(response, function(key, val) {
-      items.push("<div class='pxvimg'><a href='" + val['url'] + "'><img src='" + val['img_url'] + "'></a></div>");
+    	if (i < 50) {
+      	items.push("<div style='display: none' class='pxvimg'><a href='" + val['url'] + "'><img src='" + val['img_url'] + "'></a></div>");
+      	i++;
+      }
     });
   });
   
@@ -28,6 +32,9 @@ $(document).ready(function() {
   				itemSelector : '.pxvimg',
   				layoutMode: 'masonry'
 	  		});
+	  		$('.pxvimg').each(function(index) {
+    			$(this).delay(100*index).fadeIn(400);
+				});
 	  	});
 	  });
   });
