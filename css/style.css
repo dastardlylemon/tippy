@@ -1,0 +1,13 @@
+body {
+	background-color: #eaedf3;
+	overflow: hidden;
+	height: 100%;
+}
+
+.isotope, #content {
+	margin: 0 auto !important;
+}
+
+.pxvimg {
+	padding: 5px;
+}

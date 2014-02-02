@@ -25,13 +25,13 @@ $(document).ready(function() {
   });
   
   req.complete(function() {
-  	$("<div/>", {"id": "img-list", html: items.join("")}).appendTo("body").each(function() {
+  	$("<div/>", {"id": "img-list", html: items.join("")}).appendTo("#content").each(function() {
   		$('#img-list').waitForImages(function() {
   			console.log('loaded');
 	  		$('#img-list').isotope({
   				itemSelector : '.pxvimg',
-  				layoutMode: 'masonry'
 	  		});
+	  		
 	  		$('.pxvimg').each(function(index) {
     			$(this).delay(100*index).fadeIn(400);
 				});
