@@ -1,15 +1,38 @@
-function getMonth(date) {
-  var month = date.getMonth() + 1;
-  return month < 10 ? '0' + month : month;
+function formatTime(i) {
+	return i < 10 ? '0' + i : i;
 }
 
-function getDate(date) {
-  var date = date.getDate();
-  return date < 10 ? '0' + date : date;
+function getMonth(d) {
+  var month = d.getMonth() + 1;
+  return formatTime(month);
 }
+
+function getDate(d) {
+  var date = d.getDate();
+  return formatTime(date);
+}
+
+function startTime() {
+	var d = new Date();
+	var h = d.getHours();
+  var m = d.getMinutes();
+  var s = d.getSeconds();
+	h = formatTime(h);
+	m = formatTime(m);
+	s = formatTime(s);
+  $('#time').text(h + " " + m + " " + s);
+	t = setTimeout(function(){startTime()},500);
+}
+
+var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
 $(document).ready(function() {
+	startTime();
+
   var d = new Date();
+  $('#date').text(days[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate());
+  
   var timestamp = d.getFullYear().toString() + getMonth(d) + getDate(d);
   var json = 'http://cdn-pixiv.lolita.tw/rankings/' + timestamp + '/pixiv_daily.json';
 
@@ -17,7 +40,7 @@ $(document).ready(function() {
   var req = $.getJSON('request.php', {url: json}, function(response) {
     var i = 0;
     $.each(response, function(key, val) {
-    	if (i < 50) {
+    	if (i < 30) {
       	items.push("<div style='display: none' class='pxvimg'><a href='" + val['url'] + "'><img src='" + val['img_url'] + "'></a></div>");
       	i++;
       }
@@ -27,7 +50,7 @@ $(document).ready(function() {
   req.complete(function() {
   	$("<div/>", {"id": "img-list", html: items.join("")}).appendTo("#content").each(function() {
   		$('#img-list').waitForImages(function() {
-  			console.log('loaded');
+  			$('#loader').fadeOut(400);
 	  		$('#img-list').isotope({
   				itemSelector : '.pxvimg',
 	  		});
