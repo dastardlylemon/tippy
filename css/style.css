@@ -34,6 +34,11 @@ body {
 	padding: 5px;
 }
 
+.pxvimg img {
+	width: 240px;
+	height: auto;
+}
+
 #lowbar {
 	color: #848991;
 	width: 100%;
