@@ -12,7 +12,15 @@
 	font-style:normal;
 }
 
+@font-face {	
+	font-family:"Font Awesome";
+	src:url("../fonts/fontawesome-webfont.eot?") format("eot"),url("../fonts/fontawesome-webfont.woff") format("woff"),url("../fonts/fontawesome-webfont.ttf") format("truetype"),url("../fonts/fontawesome-webfont.svg#fontawesome-webfont") format("svg");
+	font-weight:normal;
+	font-style:normal;
+}
+
 body {
+	font-family: "Lato Light", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	background-color: #eaedf3;
 	overflow: hidden;
 	height: 100%;
@@ -27,6 +35,7 @@ body {
 }
 
 #lowbar {
+	color: #848991;
 	width: 100%;
 	height: 70%;
 	position: absolute;
@@ -55,13 +64,60 @@ body {
 #clock #time {
 	font-family: "Lato Hairline", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-size: 200px;
-	color: #848991;
 }
 
 #clock #date {
 	font-family: "Lato Light", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-size: 50px;
-	color: #848991;
+}
+
+#settings {
+	font-family: "Font Awesome";
+	font-size: 30px;
+	cursor: pointer;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}
+
+#settings:hover {
+	color: #414449;
+}
+
+#sp-wrapper {
+	padding: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 12;
+}
+
+#settings-panel {
+	padding: 20px;
+	width: 400px;
+	height: auto;
+	margin-top: -75%;
+	margin-left: -50%;
+	background-color: #fff;
+	font-size: 20px;
+	text-align: center;
+}
+
+#settings-panel h1 {
+	text-align: center;
+	margin-top: -10px;
+	height: 70px;
+	border-bottom: 2px solid #848991;
+}
+
+#blackout {
+	position: absolute; 
+	top: 0; 
+	right: 0; 
+	bottom: 0; 
+	left: 0;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 11;
 }
 
 /* loading animation */
