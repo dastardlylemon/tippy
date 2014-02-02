@@ -1,0 +1,10 @@
+{
+	"manifest_version": 2,
+  "name": "Owaranai",
+  "version": "0.1",
+  "description": "Show some cool art on the new tab page",
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+  "permissions" : ["http://localhost/", "http://*/*"]
+}

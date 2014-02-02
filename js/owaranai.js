@@ -32,13 +32,15 @@ $(document).ready(function() {
 
   var d = new Date();
   $('#date').text(days[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate());
+  $('#time').fadeIn(1000);
+  $('#date').fadeIn(1000);
   
   var timestamp = d.getFullYear().toString() + getMonth(d) + getDate(d);
   var json = 'http://cdn-pixiv.lolita.tw/rankings/' + timestamp + '/pixiv_daily.json';
 
   var items = [];
-  var req = $.getJSON('request.php', {url: json}, function(response) {
-    var i = 0;
+  var req = $.getJSON(json, function(response) {
+  	var i = 0;
     $.each(response, function(key, val) {
     	if (i < 30) {
       	items.push("<div style='display: none' class='pxvimg'><a href='" + val['url'] + "'><img src='" + val['img_url'] + "'></a></div>");
