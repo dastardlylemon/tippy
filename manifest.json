@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Owaranai",
   "version": "0.1",
-  "description": "Show some cool art on the new tab page",
+  "description": "Alternate new tab page for Chrome. Let's have a golden time.",
   "chrome_url_overrides" : {
     "newtab": "index.html"
   },
