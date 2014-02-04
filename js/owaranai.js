@@ -86,23 +86,24 @@ function loadImages(ranking) {
   });
   
   $('#loader').fadeIn(400);
-  $('#content').fadeOut(400);
-  $('#content').empty();
-  $('#content').fadeIn(400);
-  
-  req.complete(function() {
-  	$("<div/>", {"id": "img-list", html: items.join("")}).appendTo("#content").each(function() {
-  		$('#img-list').waitForImages(function() {
-  			$('#loader').fadeOut(400);
-	  		$('#img-list').isotope({
-  				itemSelector : '.pxvimg',
-	  		});
-	  		
-	  		$('.pxvimg').each(function(index) {
-    			$(this).delay(100*index).fadeIn(400);
-				});
-	  	});
-	  });
+  $('#content').fadeOut(400, function() {
+  	$('#content').empty();
+  	$('#content').fadeIn(400);
+
+		req.complete(function() {
+  		$("<div/>", {"id": "img-list", html: items.join("")}).appendTo("#content").each(function() {
+  			$('#img-list').waitForImages(function() {
+  				$('#loader').fadeOut(400);
+		  		$('#img-list').isotope({
+  					itemSelector : '.pxvimg',
+		  		});
+		  		
+		  		$('.pxvimg').each(function(index) {
+  	  			$(this).delay(100*index).fadeIn(400);
+					});
+		  	});
+		  });
+  	});
   });
 }
 
