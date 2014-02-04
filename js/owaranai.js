@@ -88,7 +88,7 @@ function loadImages(ranking) {
   $('#loader').fadeIn(400);
   $('#content').fadeOut(400, function() {
   	$('#content').empty();
-  	$('#content').fadeIn(400);
+  	$('#content').show();
 
 		req.complete(function() {
   		$("<div/>", {"id": "img-list", html: items.join("")}).appendTo("#content").each(function() {
