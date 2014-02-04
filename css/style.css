@@ -46,6 +46,7 @@ body {
 	position: absolute;
 	bottom: 0px;
 	left: 0px;
+	pointer-events: none;
 	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,1) 99%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(75%,rgba(255,255,255,1)), color-stop(99%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 75%,rgba(255,255,255,1) 99%); /* Chrome10+,Safari5.1+ */
@@ -77,6 +78,7 @@ body {
 }
 
 #settings, #dismiss {
+	color: #848991;
 	font-family: "Font Awesome";
 	font-size: 30px;
 	cursor: pointer;
@@ -101,6 +103,7 @@ body {
 }
 
 #settings-panel {
+	color: #848991;
 	position: relative;
 	padding: 20px;
 	width: 400px;
