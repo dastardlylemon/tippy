@@ -19,6 +19,10 @@
   font-style:normal;
 }
 
+::-webkit-scrollbar { 
+  display: none; 
+}
+
 body {
   font-family: "Lato Light", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   background-color: #eaedf3;
