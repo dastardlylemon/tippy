@@ -22,8 +22,6 @@
 body {
   font-family: "Lato Light", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   background-color: #eaedf3;
-  overflow: hidden;
-  height: 100%;
 }
 
 .isotope, #content {
@@ -43,7 +41,7 @@ body {
   color: #848991;
   width: 100%;
   height: 70%;
-  position: absolute;
+  position: fixed;
   bottom: 0px;
   left: 0px;
   pointer-events: none;
@@ -82,17 +80,14 @@ body {
   font-family: "Font Awesome";
   font-size: 30px;
   cursor: pointer;
-  position: absolute;
+  -webkit-transition: all ease-in-out 0.1s;
+  transition: all ease-in-out 0.1s;
 }
 
 #settings {
+  position: fixed;
   bottom: 10px;
   right: 10px;
-}
-
-#settings, #dismiss {
-  -webkit-transition: all ease-in-out 0.1s;
-  transition: all ease-in-out 0.1s;
 }
 
 #settings:hover, #dismiss:hover {
@@ -101,7 +96,7 @@ body {
 
 #sp-wrapper {
   padding: 20px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   z-index: 12;
@@ -143,12 +138,13 @@ body {
 }
 
 #dismiss {
+  position: absolute;
   top: 10px;
   right: 10px;
 }
 
 #blackout {
-  position: absolute; 
+  position: fixed; 
   top: 0; 
   right: 0; 
   bottom: 0; 
