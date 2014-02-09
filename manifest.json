@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Owaranai",
-  "version": "0.1",
+  "version": "0.2",
   "description": "Now too forever, could make you feel eternal golden time. Let's use Owaranai!",
   "chrome_url_overrides" : {
     "newtab": "index.html"
