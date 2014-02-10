@@ -12,6 +12,13 @@ function getDate(d) {
   return formatTime(date);
 }
 
+function truncate(string) {
+  if (string.length > 30)
+    return string.substring(0,30)+'...';
+  else
+    return string;
+};
+
 function startTime() {
   var d = new Date();
   var h = d.getHours();
@@ -107,6 +114,20 @@ function loadImages(ranking) {
   });
 }
 
+function populateTabList() {
+  var tabs = [];
+  chrome.sessions.getRecentlyClosed(function(sessions) {
+    var c = 0;
+    $.each(sessions, function(i, v) {
+      if (v.tab != null && v.tab.url.substring(0,9) != "chrome://" && c < 10) {
+        tabs.push("<div class='rc-link'><a href='" + v.tab.url + "'>" + truncate(v.tab.title) + "</a>");
+        c++;
+      }
+    });
+    $("<div/>", {"id": "rc-list", html: tabs.join("")}).appendTo("#rc-panel");
+  });  
+}
+
 var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
@@ -116,10 +137,9 @@ $(document).ready(function() {
 
   var d = new Date();
   $('#date').text(days[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate());
-  $('#time').fadeIn(1000);
-  $('#date').fadeIn(1000);
   
   loadImages(localStorage["rankingType"]);
+  populateTabList();
   
   $('#settings').click(function() {
     $('#sp-wrapper').fadeIn(400);
@@ -130,6 +150,22 @@ $(document).ready(function() {
     $('#sp-wrapper').fadeOut(400);
     $('#blackout').fadeOut(400);
   });
+
+  var debounce;
+
+  $('#rc-button, #rc-panel').mouseenter(function() {
+    $('#rc-panel').fadeIn(400);
+    clearTimeout(debounce);
+  });
+
+  $('#rc-panel, #rc-button').mouseleave(function() {
+    debounce = setTimeout(closeMenu, 400);
+  });
+
+  var closeMenu = function() {
+    $('#rc-panel').fadeOut(400);
+    clearTimeout(debounce);
+  }
   
   $('input[type="radio"]').click(function(){
     saveOptions();

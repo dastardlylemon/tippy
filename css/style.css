@@ -79,7 +79,7 @@ body {
   font-size: 50px;
 }
 
-#settings, #dismiss {
+#settings, #dismiss, #rc-button {
   color: #848991;
   font-family: "Font Awesome";
   font-size: 30px;
@@ -94,7 +94,7 @@ body {
   right: 10px;
 }
 
-#settings:hover, #dismiss:hover {
+#settings:hover, #dismiss:hover, #rc-button:hover {
   color: #414449;
 }
 
@@ -145,6 +145,47 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
+}
+
+#rc-button {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+}
+
+/* we use the golden ratio for obvious reasons */
+#rc-panel {
+  position: fixed;
+  bottom: 50px;
+  left: 10px;
+  z-index: 10;
+  background-color: #fff;
+  padding: 20px;
+  line-height: 1.6;
+  box-shadow: 0 0 50px 5px #848991;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: none;
+}
+
+#rc-panel h2 {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color: #848991;
+}
+
+#rc-panel a, 
+#rc-panel a:hover, 
+#rc-panel a:visited, 
+#rc-panel a:active {
+  color: #848991;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#rc-panel a:hover {
+  border-bottom: 1px solid #848991;
 }
 
 #blackout {
