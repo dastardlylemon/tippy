@@ -4,6 +4,8 @@ owaranai
 
 Owaranai is an alternate new tab page for Google Chrome that pulls wonderful images from the top rankings of [Pixiv](http://www.pixiv.com) to surprise and delight with every `Cmd-T`, or `Ctrl-T` if you're a plebeian. Owaranai is "fully responsive," written with five different preprocessors, and takes full advantage of vendor prefixes. It is guaranteed to increase market penetration for you and your significant others. Let's have a golden time.
 
+Currently, Owaranai requires that you be on the [Chrome Dev Channel](http://www.chromium.org/getting-involved/dev-channel) for certain features (recently closed tabs) to work. Sorry about that.
+
 Owaranai is a work in progress; if you see any problems, please report an issue or [let me know directly](https://twitter.com/shinocence)! Don't forget to enable developer mode in Chrome if you want to help contribute. Or if you just want to try it out, grab it [here](http://rabuko.me/files/owaranai.zip).
 
 credits
