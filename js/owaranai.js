@@ -116,7 +116,8 @@ function loadImages(ranking) {
 
 function populateTabList() {
   var tabs = [];
-  chrome.sessions.getRecentlyClosed(function(sessions) {
+  chrome.sessions.getRecentdlyClosed(function(sessions) {
+    $('#nodev').hide();
     var c = 0;
     $.each(sessions, function(i, v) {
       if (v.tab != null && v.tab.url.substring(0,9) != "chrome://" && c < 10) {
@@ -139,7 +140,6 @@ $(document).ready(function() {
   $('#date').text(days[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate());
   
   loadImages(localStorage["rankingType"]);
-  populateTabList();
   
   $('#settings').click(function() {
     $('#sp-wrapper').fadeIn(400);
@@ -171,4 +171,6 @@ $(document).ready(function() {
     saveOptions();
     loadImages(localStorage["rankingType"]);
   });
+
+  populateTabList();
 });

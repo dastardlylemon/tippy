@@ -166,13 +166,19 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   display: none;
+  color: #848991;
+  max-width: 400px;
 }
 
 #rc-panel h2 {
   text-align: center;
   margin-top: 0px;
   margin-bottom: 10px;
-  color: #848991;
+}
+
+#rc-panel #nodev, #rc-panel #nodev a {
+  text-align: center;
+  font-size: 20px;
 }
 
 #rc-panel a, 
@@ -180,6 +186,7 @@ body {
 #rc-panel a:visited, 
 #rc-panel a:active {
   color: #848991;
+  text-align: left;
   text-decoration: none;
   font-size: 17px;
 }
