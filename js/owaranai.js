@@ -116,7 +116,7 @@ function loadImages(ranking) {
 
 function populateTabList() {
   var tabs = [];
-  chrome.sessions.getRecentdlyClosed(function(sessions) {
+  chrome.sessions.getRecentlyClosed(function(sessions) {
     $('#nodev').hide();
     var c = 0;
     $.each(sessions, function(i, v) {
