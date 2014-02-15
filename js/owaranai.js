@@ -1,3 +1,8 @@
+function randomize(arr) {
+  for(var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
+    return arr;
+};
+
 function formatTime(i) {
   return i < 10 ? '0' + i : i;
 }
@@ -84,6 +89,7 @@ function loadImages(ranking) {
   var items = [];
   var req = $.getJSON(json, function(response) {
     var i = 0;
+    randomize(response);
     $.each(response, function(key, val) {
       if (i < 30) {
         items.push("<div style='display: none' class='pxvimg'><a href='" + val['url'] + "'><img src='" + val['img_url'] + "'></a></div>");
