@@ -127,7 +127,7 @@ function populateTabList() {
     var c = 0;
     $.each(sessions, function(i, v) {
       if (v.tab != null && v.tab.url.substring(0,9) != "chrome://" && c < 10) {
-        tabs.push("<div class='rc-link'><a href='" + v.tab.url + "'>" + truncate(v.tab.title) + "</a>");
+        tabs.push("<div class='rc-link'><a href='" + v.tab.url + "'>" + truncate(v.tab.title) + "</a></div>");
         c++;
       }
     });
