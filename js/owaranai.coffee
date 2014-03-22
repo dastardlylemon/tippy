@@ -31,7 +31,6 @@ defaultRanking = 'Daily'
 loadOptions = ->
   ranking = localStorage['rankingType']
   if not ranking? then ranking = defaultRanking
-  console.log ranking
   $('input[name=pgata]:radio').each ->
     if $(@)[0].value == ranking then $(@)[0].checked = true
 
@@ -58,7 +57,9 @@ loadImages = (ranking) ->
     randomize(response)
     while i < 30
       val = response[i]
-      items.push("<div style='display: none' class='pxvimg'><a href='" + val['url'] + "'><img src='" + val['img_url'] + "'></a></div>")
+      items.push(
+        "<div style='display: none' class='pxvimg'><a href='" +
+        val['url'] + "'><img src='" + val['img_url'] + "'></a></div>")
       i++
 
   $('#loader').fadeIn 400
@@ -78,9 +79,18 @@ loadImages = (ranking) ->
 populateTabList = ->
   chrome.sessions.getRecentlyClosed (sessions) ->
     $('#nodev').hide()
-    tabs = for session in sessions
-      if session.tab? and session.tab.url.substring(0,9) != 'chrome://' and _results.length < 10
-      then "<div class='rc-link'><a href='" + session.tab.url + "'>" + truncate(session.tab.title) + "</a></div>"
+    i = 0
+    tabs = []
+    while i < 10
+      session = sessions[i]
+      if session.tab? and session.tab.url.substring(0,9) != 'chrome://'
+      then tabs.push(
+        "<div class='rc-link'><a href='" +
+        session.tab.url + "'>" +
+        truncate(session.tab.title) +
+        "</a></div>"
+      )
+      i++
 
     $('<div/>', {'id': 'rc-list', 'html': tabs.join('')}).appendTo '#rc-panel'
 
@@ -97,7 +107,11 @@ $(document).ready ->
   loadOptions()
 
   d = new Date()
-  $('#date').text days[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate()
+  $('#date').text(
+    days[d.getDay()] + ", " +
+    months[d.getMonth()] + " " +
+    d.getDate()
+  )
 
   loadImages localStorage['rankingType']
 

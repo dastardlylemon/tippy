@@ -60,7 +60,6 @@
     if (ranking == null) {
       ranking = defaultRanking;
     }
-    console.log(ranking);
     return $('input[name=pgata]:radio').each(function() {
       if ($(this)[0].value === ranking) {
         return $(this)[0].checked = true;
@@ -139,21 +138,17 @@
 
   populateTabList = function() {
     return chrome.sessions.getRecentlyClosed(function(sessions) {
-      var session, tabs;
+      var i, session, tabs;
       $('#nodev').hide();
-      tabs = (function() {
-        var _i, _len, _results;
-        _results = [];
-        for (_i = 0, _len = sessions.length; _i < _len; _i++) {
-          session = sessions[_i];
-          if ((session.tab != null) && session.tab.url.substring(0, 9) !== 'chrome://' && _results.length < 10) {
-            _results.push("<div class='rc-link'><a href='" + session.tab.url + "'>" + truncate(session.tab.title) + "</a></div>");
-          } else {
-            _results.push(void 0);
-          }
+      i = 0;
+      tabs = [];
+      while (i < 10) {
+        session = sessions[i];
+        if ((session.tab != null) && session.tab.url.substring(0, 9) !== 'chrome://') {
+          tabs.push("<div class='rc-link'><a href='" + session.tab.url + "'>" + truncate(session.tab.title) + "</a></div>");
         }
-        return _results;
-      })();
+        i++;
+      }
       return $('<div/>', {
         'id': 'rc-list',
         'html': tabs.join('')
