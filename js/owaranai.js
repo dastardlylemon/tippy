@@ -43,7 +43,7 @@ function loadOptions() {
   if (ranking == undefined) {
     ranking = defaultRanking;
   }
-  
+
   $('input[name=pgata]:radio').each(function(i, d) {
     if (d['value'] == ranking) {
       d.checked = true;
@@ -77,7 +77,7 @@ function loadImages(ranking) {
     case 'Original':
       rurl = '/pixiv_original.json';
     break;
-    default: 
+    default:
       rurl = '/pixiv_daily.json';
     break;
   }
@@ -97,7 +97,7 @@ function loadImages(ranking) {
       }
     });
   });
-  
+
   $('#loader').fadeIn(400);
   $('#content').fadeOut(400, function() {
     $('#content').empty();
@@ -110,7 +110,7 @@ function loadImages(ranking) {
           $('#img-list').isotope({
             itemSelector : '.pxvimg',
           });
-          
+
           $('.pxvimg').each(function(index) {
             $(this).delay(100*index).fadeIn(400);
           });
@@ -132,7 +132,7 @@ function populateTabList() {
       }
     });
     $("<div/>", {"id": "rc-list", html: tabs.join("")}).appendTo("#rc-panel");
-  });  
+  });
 }
 
 var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -144,14 +144,14 @@ $(document).ready(function() {
 
   var d = new Date();
   $('#date').text(days[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate());
-  
+
   loadImages(localStorage["rankingType"]);
-  
+
   $('#settings').click(function() {
     $('#sp-wrapper').fadeIn(400);
     $('#blackout').fadeIn(400);
   });
-  
+
   $('#dismiss').click(function() {
     $('#sp-wrapper').fadeOut(400);
     $('#blackout').fadeOut(400);
@@ -172,7 +172,7 @@ $(document).ready(function() {
     $('#rc-panel').fadeOut(400);
     clearTimeout(debounce);
   }
-  
+
   $('input[type="radio"]').click(function(){
     saveOptions();
     loadImages(localStorage["rankingType"]);

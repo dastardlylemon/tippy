@@ -1,30 +1,46 @@
 @font-face {
   font-family:"Lato Hairline";
-  src:url("../fonts/Lato-Hairline.eot?") format("eot"),url("../fonts/Lato-Hairline.woff") format("woff"),url("../fonts/Lato-Hairline.ttf") format("truetype"),url("../fonts/Lato-Hairline.svg#Lato-Hairline") format("svg");
+  src:url("../fonts/Lato-Hairline.eot?") format("eot"),
+      url("../fonts/Lato-Hairline.woff") format("woff"),
+      url("../fonts/Lato-Hairline.ttf") format("truetype"),
+      url("../fonts/Lato-Hairline.svg#Lato-Hairline") format("svg");
   font-weight:normal;
   font-style:normal;
 }
 
-@font-face {  
+@font-face {
   font-family:"Lato Light";
-  src:url("../fonts/Lato-Light.eot?") format("eot"),url("../fonts/Lato-Light.woff") format("woff"),url("../fonts/Lato-Light.ttf") format("truetype"),url("../fonts/Lato-Light.svg#Lato-Light") format("svg");
+  src:url("../fonts/Lato-Light.eot?") format("eot"),
+      url("../fonts/Lato-Light.woff") format("woff"),
+      url("../fonts/Lato-Light.ttf") format("truetype"),
+      url("../fonts/Lato-Light.svg#Lato-Light") format("svg");
   font-weight:normal;
   font-style:normal;
 }
 
-@font-face {  
+@font-face {
   font-family:"Font Awesome";
-  src:url("../fonts/fontawesome-webfont.eot?") format("eot"),url("../fonts/fontawesome-webfont.woff") format("woff"),url("../fonts/fontawesome-webfont.ttf") format("truetype"),url("../fonts/fontawesome-webfont.svg#fontawesome-webfont") format("svg");
+  src:url("../fonts/fontawesome-webfont.eot?") format("eot"),
+      url("../fonts/fontawesome-webfont.woff") format("woff"),
+      url("../fonts/fontawesome-webfont.ttf") format("truetype"),
+      url("../fonts/fontawesome-webfont.svg#fontawesome-webfont") format("svg");
   font-weight:normal;
   font-style:normal;
 }
 
-::-webkit-scrollbar { 
-  display: none; 
+::-webkit-scrollbar {
+  display: none;
 }
 
 body {
-  font-family: "Lato Light", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Lato Light",
+               "HelveticaNeue-Light",
+               "Helvetica Neue Light",
+               "Helvetica Neue",
+               Helvetica,
+               Arial,
+               "Lucida Grande",
+               sans-serif;
   background-color: #eaedf3;
 }
 
@@ -49,13 +65,20 @@ body {
   bottom: 0px;
   left: 0px;
   pointer-events: none;
-  background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 75%, rgba(255,255,255,1) 99%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(75%,rgba(255,255,255,1)), color-stop(99%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 75%,rgba(255,255,255,1) 99%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 75%,rgba(255,255,255,1) 99%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 75%,rgba(255,255,255,1) 99%); /* IE10+ */
-  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 75%,rgba(255,255,255,1) 99%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+  background: -webkit-gradient(linear,
+                               left top,
+                               left bottom,
+                               color-stop(0%,rgba(255,255,255,0)),
+                               color-stop(75%,rgba(255,255,255,1)),
+                               color-stop(99%,rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(top,
+                                      rgba(255,255,255,0) 0%,
+                                      rgba(255,255,255,1) 75%,
+                                      rgba(255,255,255,1) 99%);
+  background: linear-gradient(to bottom,
+                              rgba(255,255,255,0) 0%,
+                              rgba(255,255,255,1) 75%,
+                              rgba(255,255,255,1) 99%); /* W3C */
 }
 
 #clock {
@@ -70,12 +93,26 @@ body {
 }
 
 #clock #time {
-  font-family: "Lato Hairline", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Lato Hairline",
+               "HelveticaNeue-Light",
+               "Helvetica Neue Light",
+               "Helvetica Neue",
+               Helvetica,
+               Arial,
+               "Lucida Grande",
+               sans-serif;
   font-size: 200px;
 }
 
 #clock #date {
-  font-family: "Lato Light", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Lato Light",
+               "HelveticaNeue-Light",
+               "Helvetica Neue Light",
+               "Helvetica Neue",
+               Helvetica,
+               Arial,
+               "Lucida Grande",
+               sans-serif;
   font-size: 50px;
 }
 
@@ -181,9 +218,9 @@ body {
   font-size: 20px;
 }
 
-#rc-panel a, 
-#rc-panel a:hover, 
-#rc-panel a:visited, 
+#rc-panel a,
+#rc-panel a:hover,
+#rc-panel a:visited,
 #rc-panel a:active {
   color: #848991;
   text-align: left;
@@ -196,10 +233,10 @@ body {
 }
 
 #blackout {
-  position: fixed; 
-  top: 0; 
-  right: 0; 
-  bottom: 0; 
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
   background-color: rgba(0,0,0,0.5);
   z-index: 11;
@@ -217,7 +254,14 @@ body {
 
 @media (max-width: 600px) {
   #clock #time {
-    font-family: "Lato Light", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: "Lato Light",
+                 "HelveticaNeue-Light",
+                 "Helvetica Neue Light",
+                 "Helvetica Neue",
+                 Helvetica,
+                 Arial,
+                 "Lucida Grande",
+                 sans-serif;
     font-size: 70px;
   }
 
@@ -225,7 +269,7 @@ body {
     font-size: 30px;
   }
 
-  #settings-panel { 
+  #settings-panel {
     width: 230px;
     margin-left: -60%;
   }
@@ -256,26 +300,11 @@ body {
   height:32px;
   margin-left:17px;
   width:32px;
-  -moz-animation-name:bounce_circleG;
-  -moz-animation-duration:1.0499999999999998s;
-  -moz-animation-iteration-count:infinite;
-  -moz-animation-direction:linear;
-  -moz-border-radius:21px;
   -webkit-animation-name:bounce_circleG;
   -webkit-animation-duration:1.0499999999999998s;
   -webkit-animation-iteration-count:infinite;
   -webkit-animation-direction:linear;
   -webkit-border-radius:21px;
-  -ms-animation-name:bounce_circleG;
-  -ms-animation-duration:1.0499999999999998s;
-  -ms-animation-iteration-count:infinite;
-  -ms-animation-direction:linear;
-  -ms-border-radius:21px;
-  -o-animation-name:bounce_circleG;
-  -o-animation-duration:1.0499999999999998s;
-  -o-animation-iteration-count:infinite;
-  -o-animation-direction:linear;
-  -o-border-radius:21px;
   animation-name:bounce_circleG;
   animation-duration:1.0499999999999998s;
   animation-iteration-count:infinite;
@@ -284,48 +313,21 @@ body {
 }
 
 #circleG_1 {
-  -moz-animation-delay:0.20999999999999996s;
   -webkit-animation-delay:0.20999999999999996s;
-  -ms-animation-delay:0.20999999999999996s;
-  -o-animation-delay:0.20999999999999996s;
   animation-delay:0.20999999999999996s;
 }
 
 #circleG_2 {
-  -moz-animation-delay:0.48999999999999994s;
   -webkit-animation-delay:0.48999999999999994s;
-  -ms-animation-delay:0.48999999999999994s;
-  -o-animation-delay:0.48999999999999994s;
   animation-delay:0.48999999999999994s;
 }
 
 #circleG_3 {
-  -moz-animation-delay:0.63s;
   -webkit-animation-delay:0.63s;
-  -ms-animation-delay:0.63s;
-  -o-animation-delay:0.63s;
   animation-delay:0.63s;
 }
 
-@-moz-keyframes bounce_circleG {
-  50% {
-    background-color:#B5B5B5
-  }
-}
-
 @-webkit-keyframes bounce_circleG {
-  50% {
-    background-color:#B5B5B5
-  }
-}
-
-@-ms-keyframes bounce_circleG {
-  50% {
-    background-color:#B5B5B5
-  }
-}
-
-@-o-keyframes bounce_circleG {
   50% {
     background-color:#B5B5B5
   }
