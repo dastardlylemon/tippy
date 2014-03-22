@@ -2,6 +2,8 @@ owaranai
 ========
 **Now too forever, could make you feel eternal golden time. Let's use Owaranai!**
 
+![Kaga Kouko would be proud.](/img/sample.png?raw=true)
+
 Owaranai is an alternate new tab page for Google Chrome that pulls wonderful
 images from the top rankings of [Pixiv](http://www.pixiv.com) to surprise and
 delight with every `Cmd-T`, or `Ctrl-T` if you're a plebeian. Owaranai is
