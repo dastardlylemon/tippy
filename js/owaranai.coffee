@@ -48,7 +48,7 @@ loadImages = (ranking) ->
     else rurl = '/pixiv_daily.json'
 
   d = new Date()
-  timestamp = d.getFullYear().toString() + getMonth(d) + getDate(d)
+  timestamp = d.getFullYear().toString() + getMonth(d) + (getDate(d) - 1)
   json = 'http://cdn-pixiv.lolita.tw/rankings/' + timestamp + rurl
 
   items = []

@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
-  "name": "Owaranai",
-  "version": "0.8.1",
-  "description": "Now too forever, could make you feel eternal golden time. Let's use Owaranai!",
+  "name": "Tippy",
+  "version": "0.8.2",
+  "description": "Is the order a new tab page?",
   "chrome_url_overrides" : {
     "newtab": "index.html"
   },
-  "short_name": "Owaranai",
+  "short_name": "Tippy",
   "permissions" : ["sessions", "tabs", "http://localhost/", "http://*/*"],
   "homepage_url" : "https://github.com/dastardlylemon/owaranai"
 }
