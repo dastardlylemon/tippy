@@ -6,7 +6,11 @@
   "chrome_url_overrides" : {
     "newtab": "index.html"
   },
+  "icons": {
+    "48": "img/icon48.png",
+    "128": "img/icon128.png" 
+  },
   "short_name": "Tippy",
   "permissions" : ["sessions", "tabs", "http://localhost/", "http://*/*"],
-  "homepage_url" : "https://github.com/dastardlylemon/owaranai"
+  "homepage_url" : "https://github.com/dastardlylemon/tippy"
 }
