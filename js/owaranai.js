@@ -88,7 +88,7 @@
   };
 
   loadImages = function(ranking) {
-    var d, items, json, req, rurl, timestamp;
+    var d, date, items, json, req, rurl, timestamp;
     switch (ranking) {
       case 'Daily':
         rurl = '/pixiv_daily.json';
@@ -109,7 +109,11 @@
         rurl = '/pixiv_daily.json';
     }
     d = new Date();
-    timestamp = d.getFullYear().toString() + getMonth(d) + format(getDate(d) - 1);
+    date = getDate(d);
+    if (date === 1) {
+      date === 29;
+    }
+    timestamp = d.getFullYear().toString() + getMonth(d) + format(date - 1);
     json = 'http://cdn-pixiv.lolita.tw/rankings/' + timestamp + rurl;
     items = [];
     if (workmode === "off") {
