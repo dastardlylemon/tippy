@@ -8,21 +8,21 @@ randomize = (arr) ->
     arr[curIndex] = arr[randIndex]
     arr[randIndex] = tempVal
 
-formatTime = (time) ->
+format = (time) ->
   if time < 10 then '0' + time else time
 
-getDate = (d) -> formatTime d.getDate()
+getDate = (d) -> format d.getDate()
 
-getMonth = (d) -> formatTime d.getMonth() + 1
+getMonth = (d) -> format d.getMonth() + 1
 
 truncate = (string) ->
   if string.length > 30 then string.substring(0,30) + '...' else string
 
 startTime = ->
   d = new Date()
-  h = formatTime d.getHours()
-  m = formatTime d.getMinutes()
-  s = formatTime d.getSeconds()
+  h = format d.getHours()
+  m = format d.getMinutes()
+  s = format d.getSeconds()
   $('#time').text h + ' ' + m + ' ' + s
   setTimeout (-> startTime()), 500
 
@@ -48,7 +48,7 @@ loadImages = (ranking) ->
     else rurl = '/pixiv_daily.json'
 
   d = new Date()
-  timestamp = d.getFullYear().toString() + getMonth(d) + (getDate(d) - 1)
+  timestamp = d.getFullYear().toString() + getMonth(d) + format(getDate(d) - 1)
   json = 'http://cdn-pixiv.lolita.tw/rankings/' + timestamp + rurl
 
   items = []

@@ -9,7 +9,7 @@ images from the top rankings of [Pixiv](http://www.pixiv.com) to surprise and
 delight with every `Cmd-T`, or `Ctrl-T` if you're a plebeian. Tippy is
 "fully responsive," written with five different preprocessors, and takes full
 advantage of vendor prefixes. It is guaranteed to increase market penetration
-for you and your significant others. Let's have a golden time.
+for you and your significant others. Let's have cafe daydreams.
 
 Currently, Tippy requires that you be on the
 [Chrome Dev Channel](http://www.chromium.org/getting-involved/dev-channel) for
