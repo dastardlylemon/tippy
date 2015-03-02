@@ -27,16 +27,23 @@ startTime = ->
   setTimeout (-> startTime()), 500
 
 defaultRanking = 'Daily'
+workmode = "off"
 
 loadOptions = ->
   ranking = localStorage['rankingType']
   if not ranking? then ranking = defaultRanking
   $('input[name=pgata]:radio').each ->
     if $(@)[0].value == ranking then $(@)[0].checked = true
+  workmode = localStorage['workMode']
+  console.log(localStorage['workMode'])
+  if not workmode? then workmode = "off"
+  if workmode == "on" then $('input[name="wmode"]').prop("checked", true)
 
 saveOptions = ->
   $('input[name=pgata]:radio').each ->
     if $(@)[0].checked then localStorage['rankingType'] = $(@)[0].value
+  localStorage['workMode'] = workmode;
+  console.log(localStorage['workMode'])
 
 loadImages = (ranking) ->
   switch ranking
@@ -52,29 +59,32 @@ loadImages = (ranking) ->
   json = 'http://cdn-pixiv.lolita.tw/rankings/' + timestamp + rurl
 
   items = []
-  req = $.getJSON json, (response) ->
-    i = 0
-    randomize(response)
-    while i < 30
-      val = response[i]
-      items.push(
-        "<div style='display: none' class='pxvimg'><a href='" +
-        val['url'] + "'><img src='" + val['img_url'] + "'></a></div>")
-      i++
 
-  $('#loader').fadeIn 400
-  $('#content').fadeOut 400, ->
-    $('#content').empty()
-    $('#content').show()
+  if workmode is "off"
+    req = $.getJSON json, (response) ->
+      i = 0
+      randomize(response)
+      while i < 30
+        val = response[i]
+        items.push(
+          "<div style='display: none' class='pxvimg'><a href='" +
+          val['url'] + "'><img src='" + val['img_url'] + "'></a></div>")
+        i++
 
-    req.complete ->
-      d = $('<div/>', {'id': 'img-list', 'html': items.join('')})
-      d.appendTo('#content').each ->
-        $('#img-list').waitForImages ->
-          $('#loader').fadeOut 400
-          $('#img-list').isotope {'itemSelector' : '.pxvimg'}
-          $('.pxvimg').each (index) ->
-            $(@).delay(100 * index).fadeIn 400
+    $('#loader').fadeIn 400
+    $('#content').fadeOut 400, ->
+      $('#content').empty()
+      $('#content').show()
+
+      req.complete ->
+        d = $('<div/>', {'id': 'img-list', 'html': items.join('')})
+        d.appendTo('#content').each ->
+          $('#img-list').waitForImages ->
+            $('#loader').fadeOut 400
+            $('#img-list').isotope {'itemSelector' : '.pxvimg'}
+            $('.pxvimg').each (index) ->
+              $(@).delay(100 * index).fadeIn 400
+  else $('#loader').fadeOut 400
 
 populateTabList = ->
   chrome.sessions.getRecentlyClosed (sessions) ->
@@ -139,5 +149,15 @@ $(document).ready ->
   $('input[type="radio"]').click ->
     saveOptions()
     loadImages localStorage['rankingType']
+
+  $('input[name="wmode"]').change ->
+    if this.checked
+      $('#content').fadeOut 400
+      workmode = "on"
+    else
+      $('#content').fadeIn 400
+      workmode = "off"
+      loadImages localStorage['rankingType']
+    saveOptions()
 
   populateTabList()
