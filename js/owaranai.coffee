@@ -3,7 +3,7 @@ randomize = (arr) ->
 
   while 0 != curIndex
     randIndex = Math.floor Math.random() * curIndex
-    curIndex -= 1;
+    curIndex -= 1
     tempVal = arr[curIndex]
     arr[curIndex] = arr[randIndex]
     arr[randIndex] = tempVal
@@ -14,6 +14,14 @@ format = (time) ->
 getDate = (d) -> format d.getDate()
 
 getMonth = (d) -> format d.getMonth() + 1
+
+addsubDate = (days) ->
+  dt = new Date
+  baseSec = dt.getTime()
+  addSec = days * 86400000
+  targetSec = baseSec + addSec
+  dt.setTime(targetSec)
+  dt
 
 truncate = (string) ->
   if string.length > 30 then string.substring(0,30) + '...' else string
@@ -42,7 +50,7 @@ loadOptions = ->
 saveOptions = ->
   $('input[name=pgata]:radio').each ->
     if $(@)[0].checked then localStorage['rankingType'] = $(@)[0].value
-  localStorage['workMode'] = workmode;
+  localStorage['workMode'] = workmode
   console.log(localStorage['workMode'])
 
 loadImages = (ranking) ->
@@ -54,11 +62,9 @@ loadImages = (ranking) ->
     when 'Original' then rurl = '/pixiv_original.json'
     else rurl = '/pixiv_daily.json'
 
-  d = new Date()
-  date = getDate(d)
-  if date is 1 then date is 29
+  d = addsubDate(-1)
 
-  timestamp = d.getFullYear().toString() + getMonth(d) + format(date - 1)
+  timestamp = d.getFullYear().toString() + getMonth(d) + getDate(d)
   json = 'http://cdn-pixiv.lolita.tw/rankings/' + timestamp + rurl
 
   items = []
